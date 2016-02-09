@@ -1,3 +1,4 @@
 mercurial:
+  setup_repo: False
   extensions:
     - largefiles
