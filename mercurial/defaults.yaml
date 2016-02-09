@@ -1,0 +1,3 @@
+mercurial:
+  exclude: "'*rc'"
+  setup_repo: True

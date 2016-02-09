@@ -1,0 +1,23 @@
+driver:
+  name: docker
+
+platforms:
+  - name: centos
+
+provisioner:
+  name: salt_solo
+  formula: mercurial
+  pillars-from-files:
+    mercurial.sls: pillar.example
+  pillars:
+    top.sls:
+      base:
+        "*":
+          - mercurial
+  state_top:
+    base:
+      "*":
+        - mercurial
+
+suites:
+  - name: default

@@ -1,0 +1,2 @@
+{% import_yaml 'mercurial/defaults.yaml' as default_settings %}
+{% set mercurial = salt['pillar.get']('mercurial', default=default_settings.get('mercurial'), merge=True) %}
