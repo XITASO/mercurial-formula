@@ -18,14 +18,8 @@ mercurial:
     - mode: 644
     - require:
       - pkg: mercurial
-
-{% for extension in mercurial.get('extensions', []) %}
-mercurial-extension-{{ extension }}:
-  ini.options_present:
-    - name: /etc/mercurial/hgrc.d/extensions.rc
-    - sections:
-        extensions:
-          {{ extension }}: ''
-    - require:
-      - file: mercurial
-{% endfor %}
+    - contents: |
+        [extensions]
+{%- for extension in mercurial.get('extensions', []) %}
+        {{ extension }} =
+{%- endfor %}
